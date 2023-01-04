@@ -42,3 +42,10 @@ def unpack_dict(data_dict):
             for value in data_dict.values():
                 file.writelines(
                     f"{value[0]}\n{value[1]}\n{value[2]}\n{value[3]}\n\n")
+
+def csv_format (data_dict):
+    data = Path("data_new.txt")
+    with open(data, "w", encoding='utf-8') as file:
+        for value in data_dict.values():
+            file.writelines(
+                f"{value[0]}; {value[1]}; {value[2]}; {value[3]}\n")

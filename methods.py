@@ -19,3 +19,32 @@ def del_info(data_dict, info):
         if info in value:
             data_dict.pop(key)
             return data_dict
+
+
+def search_data(data_dict, info):
+    c = count_info(data_dict, info)
+    if c == 0:
+        return
+    elif c == 1:
+        return [find_info(data_dict, info)]
+    elif c >= 2:
+        res = []
+        while c:
+            res.append(find_info(data_dict, info))
+            del_info(data_dict, info)
+            c -= 1
+        return res
+
+
+def change_data(data_dict, element, num, new_info):
+    for key, value in data_dict.items():
+        if element == [value] or element == value:
+            if num == 1:
+                data_dict[key] = [new_info, value[1], value[2], value[3]]
+            elif num == 2:
+                data_dict[key] = [value[0], new_info, value[2], value[3]]
+            elif num == 3:
+                data_dict[key] = [value[0], value[1], new_info, value[3]]
+            else:
+                data_dict[key] = [value[0], value[1], value[2], new_info]
+            return data_dict
