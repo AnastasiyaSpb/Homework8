@@ -25,6 +25,9 @@ def search_data():
     print("--------------")
     return input("Что будем искать?: ")
 
+def show_choice():
+    print("--------------")
+    return int(input("Нажми 1 для вывода в обычном формате, нажми 2 для вывода в csv формате: "))
 
 def del_data():
     print("--------------")
